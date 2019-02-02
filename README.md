@@ -12,3 +12,4 @@ https://blog.hasura.io/installing-php-composer-laravel-on-a-mac-840ed0d9033a/
 
 ### criar novo projeto no Laravel
      laravel new nome_do_projeto
+
