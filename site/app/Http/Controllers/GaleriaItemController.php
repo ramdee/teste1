@@ -24,6 +24,7 @@ class GaleriaItemController extends Controller
      */
     public function create()
     {
+        // exibe a pag com o formulario
         return view('galeria.create');
     }
 
@@ -35,7 +36,19 @@ class GaleriaItemController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // criando uma nova galeriaItem vazia
+        $galeriaItem = new GaleriaItem;
+
+        // pegando os valores que foram enviados do formulario
+        // inserindo nas propiedades da variavel
+        $galeriaItem->category = $request->get('category');
+        $galeriaItem->img = $request->get('image');
+
+        // todos os valores que estao na variavel
+        $galeriaItem->save();
+        
+        // redireciona para uma pagina                          passa uma mensagem para ser exibida na pagina de destino
+        return redirect(action('GaleriaItemController@create'))->with('success','seu cadastro ok');
     }
 
     /**
